@@ -46,3 +46,6 @@ yay -Sy zoxide-bin
 
 # Fast Node Manager
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir $HOME/.local/bin
+
+# Sublime Text
+yay -S sublime-text-dev
