@@ -49,3 +49,6 @@ curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir $HOME/.loca
 
 # Sublime Text
 yay -S sublime-text-dev
+
+# Font Chinese
+sudo pacman -S ttf-arphic-ukai
