@@ -1,11 +1,5 @@
-# export ZDOTDIR=~/.config/zsh
-# source $ZDOTDIR/zshrc
-
-
 # If you come from bash you might have to change your $PATH.
- #export PATH=$HOME/bin:/usr/local/bin:$PATH
- export PATH=/home/vyductan/.local/bin:$PATH
- export PATH=/usr/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -71,8 +65,25 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(brew 
+	git
+	brew
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
-	  
+source $ZSH/oh-my-zsh.sh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
+
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -98,31 +109,3 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ppf='cd ~/vyductan/PPF/ppf ; lvim'
-
-
-
-	
-### PLUGINS
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-	plugins=(brew git z)
-	# plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
-	#init to zsh
-	source $ZSH/oh-my-zsh.sh
-	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-	source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	if type brew &>/dev/null; then
-		FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-		autoload -Uz compinit
-		compinit
-	fi
-	eval "$(fnm env --use-on-cd)"
-	
-### THEME
-	#source $(brew --prefix)/opt/spaceship/spaceship.zsh
-	eval "$(starship init zsh)"
